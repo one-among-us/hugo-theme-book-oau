@@ -14,15 +14,18 @@
     <li><a class="placeholder"> </a></li>
 
     <li><a href="https://oau.edu.kg" class="notcurrent">Events</a></li>
+
+    {{ $libClass := "notcurrent" }}
+    {{ $guideClass := "notcurrent" }}
+
     {{ if eq .Site.Title "Trans in Academia! 文章资料库" }}
-    <li><a href="https://lib.oau.edu.kg" class="current">Library</a></li>
-    <li><a href="https://uniguide.oau.edu.kg" class="notcurrent">UniGuide</a></li>
+        {{ $libClass = "current" }}
+    {{ else if eq .Site.Title "Transgender University Guidance" }}
+        {{ $guideClass = "current" }}
     {{ end }}
 
-    {{ if eq .Site.Title "Transgender University Guidance" }}
-    <li><a href="https://lib.oau.edu.kg" class="notcurrent">Library</a></li>
-    <li><a href="https://uniguide.oau.edu.kg" class="current">UniGuide</a></li>
-    {{ end }}
+    <li><a href="https://lib.oau.edu.kg" class="{{ $libClass }}">Library</a></li>
+    <li><a href="https://uniguide.oau.edu.kg" class="{{ $guideClass }}">UniGuide</a></li>
 
     <button onclick="toggle()">👁</button>
   </div>
